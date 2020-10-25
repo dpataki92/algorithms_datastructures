@@ -35,3 +35,16 @@ const subLength = (str, char) => {
     return indexes.length === 2 ? indexes[1] + 1 - indexes[0] : 0;
 
 }
+
+// Groceries - Collects values of objects stored in an array and concats them with , or 'and' based on array's length
+const groceries = (arr) => {
+    if (arr.length === 1) { return `${arr[0].item}`}
+    else {
+        let str = '';
+        for (let i = 0; i < arr.length; i++) {
+            if (i === arr.length - 1) {str += ` and ${arr[i].item}`}
+            else {str += `${arr[i].item}${i === arr.length - 2 ? "" : ", "}`}
+        }
+        return str;
+    }
+}   
