@@ -67,4 +67,20 @@ function fizzbuzz(n) {
     return result;
 }
 
+// Two Sum Problem - determines if any two numbers within the array sum to S
+function twoSum(arr, S) {
+    let hashTable = {};
+    
+    for (let i = 0; i < arr.length; i++) {
+    
+    let sumMinusElement = S - arr[i];
+    
+    if (hashTable[sumMinusElement] !== undefined) {
+        return true;
+    }
+
+    hashTable[arr[i]] = true;
+    }
+    return false;
+}
 
