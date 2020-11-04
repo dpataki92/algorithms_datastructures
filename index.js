@@ -167,3 +167,14 @@ function removeChars2(arr, string) {
 
     return result;
 }
+
+// matchingParens - checks if valid number of parenthesis
+function matchingParens(str) {
+    let counter = 0;
+
+    for (let c of str) {
+        c === '(' ? couter += 1 : counter -= 1;
+    }
+
+    return counter === 0 ? true : false;
+}
