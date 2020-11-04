@@ -178,3 +178,20 @@ function matchingParens(str) {
 
     return counter === 0 ? true : false;
 }
+
+// firstNonRepChar - finds first non-repeating character
+function firstNonRepChar(str) {
+    let results = {}
+
+    for (let c of str) {
+        results[c] === undefined ? results[c] = 1 : results[c] += 1;
+    }
+
+    for (let prop in results) {
+        if (results[prop] === 1) {
+            return results[prop]
+        }
+    }
+
+    return -1;
+}
