@@ -207,6 +207,20 @@ function threeVowels(str) {
             count += 1;
         }
     }
-    
+
     return count;
+}
+
+// removePairs - removes all adjacent matching characters
+function removePairs(str) {
+    let result = '';
+
+    for (let i = 0; i < str.length; i++) {
+        if (i === str.length-1) {result += str[i]}
+        else if (str[i+1] !== str[i]) {
+                result += str[i]
+            }
+    }
+
+    return result;
 }
