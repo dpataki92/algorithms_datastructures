@@ -109,3 +109,13 @@ function clockAngle(hour, min) {
 
     return angle > 180 ? 360 - angle : angle;
 }
+
+
+// // isPrime - determines if N is a prime number
+function isPrime(n) {
+    if (n < 2) {return false}
+    for (let i = 2; i <= Math.ceil(Math.sqrt(n)); i++) {
+        if (n % i === 0) {return false}
+    }
+    return true;
+}
