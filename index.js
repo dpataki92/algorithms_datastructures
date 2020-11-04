@@ -143,3 +143,27 @@ function filter (arr, func) {
 
     return newArr;
 }
+
+// removeChars - removes set of characters from a string
+function removeChars(arr, str) {
+    let strArr = str.split("")
+
+    return strArr.filter(el => !arr.includes(el)).join("");
+} 
+
+function removeChars2(arr, string) {
+    
+    let hashTable = {};
+    for (let c of arr) {
+        hashTable[c] = true;
+    }
+    
+    let result = '';
+    for (let c of string) {
+        if (hashTable[c] === undefined) {
+            result += c;
+        }
+    }
+
+    return result;
+}
