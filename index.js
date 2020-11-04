@@ -84,3 +84,20 @@ function twoSum(arr, S) {
     return false;
 }
 
+// SumArray - Calculcates the sum of nested arrays
+function sumNested(arr) {
+    let result = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+
+        if (typeof arr[i] !== 'number') {
+        result += sumNested(arr[i]);
+
+    } else {
+        result += arr[i];
+    }
+    }
+    return result;
+}
+
+
