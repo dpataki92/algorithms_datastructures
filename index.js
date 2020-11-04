@@ -31,9 +31,7 @@ const subLength = (str, char) => {
             indexes.push(i);
         }
     }
-
     return indexes.length === 2 ? indexes[1] + 1 - indexes[0] : 0;
-
 }
 
 // Groceries - Collects values of objects stored in an array and concats them with , or 'and' based on array's length
@@ -48,3 +46,25 @@ const groceries = (arr) => {
         return str;
     }
 }   
+
+// FizzBuzz - Returns Fizz if n is divisble by 3, Buzz if divisble by 5, and FizzBuzz if divisble by both
+function fizzbuzz(n) {
+
+    let result = [];
+
+    for (let i = 1; i <= n; i++) {
+
+    let add = '';
+
+    if (i % 3 === 0 && i % 5 === 0) {add += 'FizzBuzz'}
+
+    else if (i % 3 === 0) { add += 'Fizz'; }
+    
+    else if (i % 5 === 0) { add += 'Buzz'; }
+    
+    add === '' ? result.push(i) : result.push(add);
+    }
+    return result;
+}
+
+
