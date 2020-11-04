@@ -84,7 +84,7 @@ function twoSum(arr, S) {
     return false;
 }
 
-// SumArray - Calculcates the sum of nested arrays
+// SumArray - calculcates the sum of nested arrays
 function sumNested(arr) {
     let result = 0;
 
@@ -100,4 +100,12 @@ function sumNested(arr) {
     return result;
 }
 
+// ClockAngle - calculcates the angle on a clock
+function clockAngle(hour, min) {
+    let m = min * 6;
+    let h = (hour * 30) + (min * 0.5);
 
+    let angle = Math.abs(h-m);
+
+    return angle > 180 ? 360 - angle : angle;
+}
