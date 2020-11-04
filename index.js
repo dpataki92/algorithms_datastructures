@@ -224,3 +224,44 @@ function removePairs(str) {
 
     return result;
 }
+
+// majorityElement = finds the majority element (element that appears more than n/2 times)
+function majorityElement(arr) {
+    let hashTable = {};
+    let threshold = Math.floor(arr.length / 2);
+
+    for (let el of arr) {
+        hashTable[el] === undefined ? hashTable[el] = 1 : hashTable[el] += 1;
+    }
+
+    for (let prop in hashTable) {
+        if (hashTable[prop] > threshold){return parseInt(prop)}
+    }
+
+    return null;
+
+}
+
+function majorityElement2(arr) {
+    let candidate = null;
+    let count = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+    if (candidate === null || count === 0) {
+        candidate = arr[i];
+        count = 1;
+    } else if (arr[i] === candidate) {
+        count += 1;
+    } else {
+        count -= 1;
+    }
+    }
+ 
+    count = 0;
+    for (let el of arr) {
+        if (el === candidate) {
+        count += 1;
+        }
+    }
+    return (count > Math.floor(arr.length / 2)) ? candidate : null;
+}
