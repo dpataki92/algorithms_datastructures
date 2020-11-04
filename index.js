@@ -111,11 +111,35 @@ function clockAngle(hour, min) {
 }
 
 
-// // isPrime - determines if N is a prime number
+// isPrime - determines if N is a prime number
 function isPrime(n) {
     if (n < 2) {return false}
     for (let i = 2; i <= Math.ceil(Math.sqrt(n)); i++) {
         if (n % i === 0) {return false}
     }
     return true;
+}
+
+// custom map - implements the map iterator
+function map (arr, func) {
+    let newArr = [];
+
+    for (let el of arr) {
+        newArr.push(func(el));
+    }
+
+    return newArr;
+}
+
+// custom filter - implements the filter iterator
+function filter (arr, func) {
+    let newArr = [];
+
+    for (let el of arr) {
+        if (func(el)) {
+            newArr.push(el);
+        }
+    }
+
+    return newArr;
 }
