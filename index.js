@@ -22,7 +22,6 @@ const factorial2 = (n) => {
 
 // Sublength - returns length between 2 occurrences of a string character 
 const subLength = (str, char) => {
-
     let indexes = [];
 
     for (let i = 0; i < str.length; i++) {
@@ -49,7 +48,6 @@ const groceries = (arr) => {
 
 // FizzBuzz - Returns Fizz if n is divisble by 3, Buzz if divisble by 5, and FizzBuzz if divisble by both
 function fizzbuzz(n) {
-
     let result = [];
 
     for (let i = 1; i <= n; i++) {
@@ -194,4 +192,21 @@ function firstNonRepChar(str) {
     }
 
     return -1;
+}
+
+// threeVowels - counts words that have at least 3 continuous vowels
+function threeVowels(str) {
+    
+    let arr = str.split(' ');
+    let count = 0;
+    
+    const pattern = /[aeiou]{3,}/gi;
+    
+    for (let word of arr) {
+        if (word.match(pattern) !== null) {
+            count += 1;
+        }
+    }
+    
+    return count;
 }
