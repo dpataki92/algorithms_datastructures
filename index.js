@@ -367,3 +367,23 @@ function convert(str) {
 
     return obj;
 }
+
+// threeSum - determines if any three numbers within the array sum to S
+function threeSum(arr, S) {
+    let sorted = arr.sort((a,b) => a-b);
+
+    for (let i = 0; i < sorted.length - 2; i++) {
+
+        let pointerStart = i+1;
+        let pointerEnd = sorted.length-1;
+
+        while (pointerStart < pointerEnd) {
+            let sum = sorted[i] + sorted[pointerStart] + sorted[pointerEnd];
+
+            if (sum === S) {return true}
+            else if (sum < S) {pointerStart += 1}
+            else if (sum > S) {pointerEnd -= 1}
+        }
+    }
+    return false;
+}
