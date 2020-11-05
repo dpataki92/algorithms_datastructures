@@ -265,3 +265,25 @@ function majorityElement2(arr) {
     }
     return (count > Math.floor(arr.length / 2)) ? candidate : null;
 }
+
+// lightBulbs - solves switching light bulbs problem
+function lightBulbs(N) {
+    let lightbulbs = [];
+
+    for (let i = 0; i < N; i++) {
+        lightbulbs.push(false)
+    }
+
+    for (let i = 1; i <= N; i++) {
+        let count = 1;
+        let nth = i * count;
+
+        while(nth !== N) {
+            lightbulbs[nth - 1] = !lightbulbs[nth - 1];
+            count += 1;
+            nth = i * count;
+        }
+    }
+
+    return lightbulbs;
+}
