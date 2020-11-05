@@ -313,3 +313,21 @@ function overlapping2(range1, range2) {
     }
     return overlap;
 }
+
+// meanMedianMode - returns mean, median, and mode of an array
+function meanMedianMode(arr) {
+    let mean = arr.reduce((a, b) => a + b) / arr.length;
+
+    arr = arr.sort();
+    let median = arr[Math.floor(arr.length / 2)];
+
+    let mode = undefined;
+    let hashTable = {};
+    for (let i of arr) {
+        hashTable[i] === undefined ? hashTable[i] = 1 : hashTable[i] += 1;
+        if (mode === undefined || hashTable[i] > mode) {
+            mode = i;
+        }
+    }
+    return { 'mean': mean, 'median': median, 'mode': mode };
+}
