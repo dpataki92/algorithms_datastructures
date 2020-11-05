@@ -348,3 +348,22 @@ function encodeConsonants(str) {
     }
     return result;
 }
+
+// convert - converts an array of strings into an object
+function convert(str) {
+    let arr = str.split(" ");
+    let obj = {};
+
+    for (let i = 0; i < arr.length; i++) {
+        let personObj = {};
+        let personArr = arr[i].split(',');
+
+        personObj.email = personArr[1];
+        personObj.age = personArr[2];
+        personObj.occupation = personArr[3];
+
+        obj[personArr[0]] = personObj;
+    }
+
+    return obj;
+}
