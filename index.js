@@ -287,3 +287,29 @@ function lightBulbs(N) {
 
     return lightbulbs;
 }
+
+
+// overlapping - lists integers that overlap in two ranges
+function overlapping(range1, range2) {
+
+    let fullRangeStart = range1[0] >= range2[0] ? range1[0] : range2[0];
+    let fullRangeEnd = range1[1] <= range2[1] ? range1[1] : range2[1];
+
+    let  result = [];
+
+    for (let i = fullRangeStart; i <= fullRangeEnd; i++) {result.push(i)}
+
+    return result;
+
+}
+
+function overlapping2(range1, range2) {
+    let overlap = [];
+    
+    for (let i = range1[0]; i <= range1[1]; i++) {
+        if (i >= range2[0] && i <= range2[1]) {
+        overlap.push(i);
+        }
+    }
+    return overlap;
+}
