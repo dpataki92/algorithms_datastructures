@@ -331,3 +331,20 @@ function meanMedianMode(arr) {
     }
     return { 'mean': mean, 'median': median, 'mode': mode };
 }
+
+// encodeConsonants - encode consonants within a string by replacing every consonant with the next consonant in the alphabet
+function encodeConsonants(str) {
+    let result = '';
+
+    let vowels = ['a', 'e', 'i', 'u', 'o'];
+
+    for (let c of str) {
+        if (c === 'z') {result += 'b'}
+        else if (c === ' ' || vowels.includes(c)) {result += c}
+        else if (!vowels.includes(c)) {
+                let charCode = c.charCodeAt();
+                vowels.includes(String.fromCharCode(charCode + 1)) ? result += String.fromCharCode(charCode + 2) : result+=  String.fromCharCode(charCode + 1);
+            } 
+    }
+    return result;
+}
