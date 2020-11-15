@@ -387,3 +387,40 @@ function threeSum(arr, S) {
     }
     return false;
 }
+
+// largestSubarraySum - Kadene's algorithm - the maximum subarray at each element is either the current element itself, or the current element 
+// plus the maximum subarray ending at the previous element.
+
+function largestSubarraySum(array){
+
+    let currentMax = array[0];
+    let globalMax = array[0];
+        
+        for (let i = 1; i < array.length; i++) {
+
+            currentMax = Math.max(array[i], array[i] + currentMax)
+
+            if (currentMax > globalMax) {globalMax = currentMax}
+            
+        }
+    
+    return globalMax;
+}
+
+
+function maxSubarray(a) {
+    let maxSoFar = a[0]
+    let elementsSoFar = [a[0]]
+
+    for (let i = 1; i < a.length; i++) {
+        if (a[i] > (elementsSoFar.concat(a[i])).reduce((a,b) => a+b)) {
+            elementsSoFar = [a[i]]
+        } else {
+            elementsSoFar.push(a[i])
+        }
+        maxSoFar = Math.max(maxSoFar, elementsSoFar.reduce((a,b) => a+b));
+    }
+
+    return maxSoFar
+}
+
