@@ -424,3 +424,34 @@ function maxSubarray(a) {
     return maxSoFar
 }
 
+// binarySearch - finds out if string contains letter, divides the dataset with each attempt to find a match
+function binarySearch(str, letter) {
+    let string = str.split("").sort().join("");
+
+    let startpoint = 0;
+    let endpoint = string.length - 1;
+    let guessPosition = parseInt((endpoint - startpoint)/2);
+
+    while (startpoint != endpoint) {
+        if (string[guessPosition] < letter) {
+
+            startpoint = guessPosition
+            guessPosition = startpoint + Math.round((endpoint - startpoint)/2);
+
+        } else if(string[guessPosition] > letter) {
+            endpoint = guessPosition
+            guessPosition = startpoint + parseInt((endpoint - startpoint)/2);
+
+        } else {
+            return true;
+        }
+    }
+    if(string === letter){
+      return true
+    } else{
+      console.log('sorry')
+      return false;
+    }
+  }
+  let string = "bcde"
+  console.log(binarySearch(string, "c"))
