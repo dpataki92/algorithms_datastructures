@@ -37,3 +37,12 @@ function removeFirstTwo(list) {
     const [, , ...arr] = list; 
     return arr;
 } 
+
+// Destructure undefined 
+function pointValues(point){
+    const {name:n,age:a} = {...point} // creates new object using the properties of point
+    console.log(n)
+    console.log(a)
+}
+
+
