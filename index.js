@@ -1,3 +1,13 @@
+/* SUPPORT */
+    // custom function to measure performance 
+    const checkPerformance = (func) => {
+        let t1 = process.hrtime();
+        func();
+        let t2 = process.hrtime();
+        console.log(`Time elapsed: ${(t2[1] - t1[1]) / 1000} nanoseconds.`)
+    }
+/* SUPPORT */
+
 // Factorial - factorialize numbers
 const factorial = (n) => {
     if (n < 0) {return -1}
@@ -594,4 +604,6 @@ function addUpTo(n) {
 function addUpTo2(n) {
     return n * (n+1) / 2 
 }
+
+console.log(checkPerformance(addUpTo2));
 
