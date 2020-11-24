@@ -1,3 +1,5 @@
+// LANGUAGES BASICS
+
 // What will be the output of the following code?
 function Add(){
     console.log(answer)
@@ -45,4 +47,23 @@ function pointValues(point){
     console.log(a)
 }
 
+// TYPE COERCION
 
+// What will be the output of the code below?
+var names = ["Tom","Anna",2,true]
+console.log(names instanceof String)
+console.log(names instanceof Number)
+console.log(names instanceof Object)
+console.log(names instanceof Array)
+
+// Implement a function check that takes an object and determines if it is an array or not. It should return either true or false.
+function check(obj) {
+    if (Object.prototype.toString.call(obj) === "[object Array]") {
+      return true;
+    } else {
+      return false;
+    }
+}
+
+// What will the following code display?
+console.log(Object.prototype.toString.call(new (function Custom(){})));
