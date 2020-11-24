@@ -67,3 +67,23 @@ function check(obj) {
 
 // What will the following code display?
 console.log(Object.prototype.toString.call(new (function Custom(){})));
+
+// CLOSURES
+
+// What is the output of this function? // same woth var, updates with let because it's block-scoped
+function buildFunctions() {
+    let arr = [];
+
+    for (var i = 0; i < 3; i++) {
+        arr.push(function() {
+            console.log(i);
+        })
+    }
+
+    return arr;
+}
+
+let fn = buildFunctions();
+fn[0]();
+fn[1]();
+fn[2]();
