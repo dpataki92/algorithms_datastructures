@@ -581,3 +581,17 @@ function mergeSort(arr) {
         return merge(mergeSort(firstHalf), mergeSort(secondHalf));
     }
 }
+
+// addUpTo - calculates the sum of all numbers from 1 to n
+function addUpTo(n) {
+    let total = 0;
+    for (let i = 1; i <= n; i++) {
+        total += i;
+    }
+    return total;
+}
+
+function addUpTo2(n) {
+    return n * (n+1) / 2 
+}
+
