@@ -607,3 +607,15 @@ function addUpTo2(n) {
 
 console.log(checkPerformance(addUpTo2));
 
+// removeEven - Implement a function removeEven(arr), which takes an array arr in its input and removes all the even elements from a given array.
+function removeEven(arr) {
+    const odds = []
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 !== 0) {
+            odds.push(arr[i]);
+        }
+    }
+    return odds;
+}
+
+
