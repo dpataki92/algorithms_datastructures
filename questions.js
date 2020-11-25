@@ -141,3 +141,43 @@ function check(){
     console.log(obj.name) 
     console.log(obj instanceof Human) 
 }
+
+// FUNCTIONAL PROGRAMMING
+
+// The following code has an impure function addAndPrint. Modify it into a pure function.
+const addAndPrint = (a, b) => { 
+    const sum = a+b;
+    console.log(`The sum is ${sum}`);
+    return sum;
+};
+
+// =>
+const addAndPrint = (a, b) => { 
+    return a+b;
+};
+
+// Shallow copying - what is the input?
+const girl = {
+    name: 'Anna',
+    info: { age: 20, number: 123 }
+};
+  
+const newGirl = { ...girl };
+newGirl.info.age = 30;
+console.log(girl.info.age, newGirl.info.age);
+
+// => 30 30 because objects are passed through by reference 
+
+
+// Study the code below. Is func1 a higher order function?
+const func1 = function(num){
+    return function(){
+      if(typeof num == 'NaN'){
+        return "Not a number"
+      }else{
+        return typeof(num)
+      }
+    }
+}
+
+// => Yes! Higher-order functions are those that accept functions as parameters or return a function as their output
