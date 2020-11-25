@@ -658,4 +658,11 @@ function sum(...args) {
     }
 }
 
-// 
+// traverseDOM - traverses through a DOM element and executes callback for each child node
+function traverseDOM(el, cb) {
+    cb(el);
+
+    for (let node of el.children) {
+        traverse(node, cb)
+    }
+}
