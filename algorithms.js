@@ -619,3 +619,26 @@ function removeEven(arr) {
 }
 
 
+// Implement the isBalanced() function to take a string containing only curly {}, square [], and round () parentheses. The function should tell us if all the parentheses in the string are balanced. 
+// This means that every opening parenthesis will have a closing one. For example, {[]} is balanced, but {[}] is not.
+function isBalanced(str) {
+
+    const arr = [];
+
+    const map = {
+        "(": ")",
+        "{": "}",
+        "[": "]"
+    }
+
+    for (char of str) {
+        if (char === "(" || char === "{" || char === "[") {
+            arr.push(char);
+        } else {
+            let lastItem = arr.pop();
+            if (map[lastItem] !== char) {return false};
+        }
+    }
+
+    return arr.length === 0;
+}
