@@ -87,3 +87,57 @@ let fn = buildFunctions();
 fn[0]();
 fn[1]();
 fn[2]();
+
+// OOP
+
+// write code for obj2 so that the statement returns true on line 5.
+function isPrototype(){
+    var obj1 = {x: 1};
+
+    var obj2 = Object.create(obj1); //  Extra assignment
+    
+    console.log(
+      obj1.isPrototypeOf(obj2)  
+    ); 
+   
+  }
+
+// You would be asked to modify the code to resolve its error with using ES6 classes
+function Cat (name) {
+    this.name = name
+    }
+    Cat.meow = function () {
+    console.log(this.name + ' says meow')
+}
+let catty = new Cat('catty')
+catty.meow()
+
+// ====>
+
+class Cat{
+    constructor(name) {
+        this.name = name;
+    }
+    
+    meow(){
+        console.log(this.name +  ' says meow')
+    }
+}
+
+// implement inheritence between Human and Man
+function Human(name, age) {
+    this.name = name;
+    this.age = age;
+};
+
+function Man(name, age) {
+    Human.call(this, name, age); // extra line -  In order for Man to inherit its properties, we must call the constructor of the parent in Man’s constructor function.
+};
+
+Man.prototype = Object.create(Human.prototype); // extra line - creates a prototype chain, which means that any Man will have Human as its prototype.
+
+function check(){
+    var obj = new Man("Tommy Tan");
+    console.log(obj.name) 
+    console.log(obj instanceof Human) 
+}
