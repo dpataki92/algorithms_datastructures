@@ -45,4 +45,24 @@ class LinkedList {
         tail.setNextNode(new Node(data));
       }
     }
+
+    removeHead() {
+      const removedHead = this.head;
+      if (!removedHead) {
+        return;
+      }
+      this.head = removedHead.getNextNode();
+      return removedHead.data;
+    }
+  
+    printList() {
+      let currentNode = this.head;
+      let output = '<head> ';
+      while(currentNode !== null) {
+        output += currentNode.data + ' ';
+        currentNode = currentNode.getNextNode();
+      }
+      output = output + '<tail>';
+      console.log(output);
+    }
 }  
