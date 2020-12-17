@@ -255,19 +255,16 @@ function swapNodes(list, data1, data2) {
 // finds nth last element in a singly linked list
 const nthLastNode = ( linkedList, n) => {
   nthLastNodePointer = null;
-  count = 1;
+  count = 0;
   tailPointer = linkedList.head;
 
   while(tailPointer) {
     tailPointer = tailPointer.getNextNode();
     if (count >= n) {
-      if (nthLastNodePointer === null) {nthLastNodePointer = linkedList.head}
-      else {
-        nthLastNodePointer = nthLastNodePointer.getNextNode();
-      }
+      if (!nthLastNodePointer) {nthLastNodePointer = linkedList.head}
+      nthLastNodePointer = nthLastNodePointer.getNextNode();
     }
     count += 1;
   }
-
   return nthLastNodePointer;
 };
