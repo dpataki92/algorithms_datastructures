@@ -204,6 +204,11 @@ class Node {
 
 // Swapping elements in a linked list
 function swapNodes(list, data1, data2) {
+  if (data1 === data2) {
+    console.log('Elements are the same - no swap needed.');
+    return;
+  }
+
   let node1 = list.head;
   let node2 = list.head;
   let node1Prev = null;
@@ -225,6 +230,11 @@ function swapNodes(list, data1, data2) {
     node2 = node2.getNextNode();
   }
 
+  if (node1 === null || node2 === null) {
+    console.log('Swap not possible - one or more element is not in the list');
+    return;
+  }
+
   if (node1Prev === null) {
     list.head = node2;
   } else {
@@ -241,3 +251,23 @@ function swapNodes(list, data1, data2) {
   node1.setNextNode(node2.getNextNode());
   node2.setNextNode(temp); 
 }
+
+// finds nth last element in a singly linked list
+const nthLastNode = ( linkedList, n) => {
+  nthLastNodePointer = null;
+  count = 1;
+  tailPointer = linkedList.head;
+
+  while(tailPointer) {
+    tailPointer = tailPointer.getNextNode();
+    if (count >= n) {
+      if (nthLastNodePointer === null) {nthLastNodePointer = linkedList.head}
+      else {
+        nthLastNodePointer = nthLastNodePointer.getNextNode();
+      }
+    }
+    count += 1;
+  }
+
+  return nthLastNodePointer;
+};
