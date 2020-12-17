@@ -128,7 +128,35 @@ class DoublyLinkedList {
       this.removeHead();
     }
     return removedTail.data;
-  }  
+  }
+  
+  removeByData(data) {
+    let nodeToRemove;
+    let currentNode = this.head;
+    while (currentNode !== null) {
+      if (currentNode.data === data) {
+        nodeToRemove = currentNode;
+        break;
+      }
+      currentNode = currentNode.getNextNode();
+    }
+    if (!nodeToRemove) {
+      return null;
+    }
+    if (this.head === nodeToRemove) {
+      this.removeHead();
+    }
+    else if(this.tail === nodeToRemove) {
+      this.removeTail();
+    }
+    else {
+      const nextNode = nodeToRemove.getNextNode();
+      const previousNode = nodeToRemove.getPreviousNode();
+      nextNode.setPreviousNode(previousNode);
+      previousNode.setNextNode(nextNode);
+    }
+    return nodeToRemove;
+  }
   
   printList() {
     let currentNode = this.head;
