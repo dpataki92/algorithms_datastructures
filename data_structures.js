@@ -268,3 +268,18 @@ const nthLastNode = ( linkedList, n) => {
   }
   return nthLastNodePointer;
 };
+
+// finds the middle node in a single linked list
+const findMiddle = linkedList => {
+  let slowPointer = linkedList.head;
+  let fastPointer = linkedList.head;
+
+  while(fastPointer) {
+    fastPointer = fastPointer.next;
+    if (fastPointer) {
+      fastPointer = fastPointer.next;
+      slowPointer = slowPointer.next;
+    }
+  }
+  return slowPointer;
+};
