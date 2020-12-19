@@ -666,3 +666,21 @@ function traverseDOM(el, cb) {
         traverse(node, cb)
     }
 }
+
+// missingInteger - finds the smallest positive integer that does not occur in a given sequence
+function missingInteger(A) {
+    if (A.length === 1 && A[0] > 0) {return A[0] + 1}
+
+    A.sort((a,b) => a-b);
+    let min = 0;
+
+    for (let i = 0; i < A.length; i++) {
+        if (i === A.length-1 && A[i] > 0) {return A[A.length-1] + 1}
+        else if (A[i] > 0 && A[i] !== A[i+1] && A[i] + 1 !== A[i+1]) {
+            min = A[i];
+            break;
+        }
+    }
+
+    return min + 1;
+}
