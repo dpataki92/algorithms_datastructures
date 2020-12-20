@@ -684,3 +684,33 @@ function missingInteger(A) {
 
     return min + 1;
 }
+
+// MinAvgTwoSlice - finds the minimal average of any slice containing at least two elements
+function MinAvgTwoSlice(A) {
+
+    let minAvgIdx=0;
+    let minAvgVal=(A[0]+A[1])/2;
+    let currAvg;
+    for(let i=0; i<A.length-2; i++){
+
+        currAvg = ((A[i] + A[i+1]))/2;
+        if(currAvg < minAvgVal){
+            minAvgVal = currAvg;
+            minAvgIdx = i;
+        }
+  
+        currAvg = ((A[i] + A[i+1] + A[i+2]))/3;
+        if(currAvg < minAvgVal){
+            minAvgVal = currAvg;
+            minAvgIdx = i;
+        }
+    }
+
+    currAvg = ((A[A.length-2] + A[A.length-1]))/2;
+    if(currAvg < minAvgVal){
+        minAvgVal = currAvg;
+        minAvgIdx = A.length-2;
+    }
+    return minAvgIdx;
+}
+
