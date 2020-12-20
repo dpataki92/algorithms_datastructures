@@ -714,3 +714,19 @@ function MinAvgTwoSlice(A) {
     return minAvgIdx;
 }
 
+// passingCars - counts the number of passing cars on the road (0-east, 1-west)
+function passingCars(A) {
+    let pairCount = 0;
+    let zeroCount = 0;
+
+    for (let i = 0; i < A.length; i++) {
+        if (A[i] === 0) {zeroCount += 1}
+        else {
+            if (pairCount > 1000000000) {return -1}
+            pairCount += zeroCount;
+        }
+    }
+
+    return pairCount;
+}
+
