@@ -753,3 +753,37 @@ function maxProductOfThree(A) {
     return potentialMax1 > potentialMax2 ? potentialMax1 : potentialMax2;
 }
 
+// numberOfDiscIntersections - computes the number of intersections in a sequence of discs.
+function solution(A) {
+    let items = [];
+    let intersections = 0;
+    const LIMIT = 10000000;
+    
+    for(let i=0; i<A.length; i++) {
+        items.push({
+            base: i,
+            start: i - A[i],
+            end: i + A[i]
+        });
+    }
+    
+    items.sort((a, b) => a.start - b.start);
+    
+    let sameStart = 0;
+    for(let i=0; i<items.length; i++) {
+        let item = items[i];
+        let j=i+1;
+        
+        while(items[j] && item.end >= items[j].start) {
+            if(++intersections > LIMIT) return -1;
+            
+            if(item.start === items[j++].start) {
+                sameStart++;
+            }
+        }
+        
+        sameStart = 0;
+    }
+    
+    return intersections;
+}
