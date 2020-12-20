@@ -730,3 +730,10 @@ function passingCars(A) {
     return pairCount;
 }
 
+// distinct - computes number of distinct values in an array
+function distinct(A) {
+    let distinctValues = Array.from(new Set(A));
+
+    return distinctValues.length;
+}
+
