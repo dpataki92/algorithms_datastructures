@@ -737,3 +737,19 @@ function distinct(A) {
     return distinctValues.length;
 }
 
+// maxProductOfThree - maximizes A[P] * A[Q] * A[R] for any triplet (P, Q, R)
+function maxProductOfThree(A) {
+    A.sort((a,b) => a-b);
+
+    let negativeMax;
+
+    if (A[0] < 0 && A[1] < 0) {
+        negativeMax = A[0] * A[1];
+    }
+
+    let potentialMax1 = negativeMax * A[A.length-1];
+    let potentialMax2 = A[A.length-3] * A[A.length-2] * A[A.length-1];
+
+    return potentialMax1 > potentialMax2 ? potentialMax1 : potentialMax2;
+}
+
