@@ -787,3 +787,19 @@ function solution(A) {
     
     return intersections;
 }
+
+// triangle - finds if triangle can be built from a given set of edges
+function triangle(A) {
+
+    if (A.length < 3) {return 0}
+
+    A.sort((a,b) => a-b);
+    
+    for (let i = 2; i < A.length; i++) {
+        if (A[i] + A[i-1] > A[i-2] && A[i-1] + A[i-2] > A[i] && A[i-2] + A[i] > A[i-1]) {
+            return 1
+        }
+    }
+
+    return 0;
+}
