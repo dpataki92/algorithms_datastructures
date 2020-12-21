@@ -803,3 +803,20 @@ function triangle(A) {
 
     return 0;
 }
+
+// dominator - finds dominator element (one with 50%+ appearance)
+function dominator(A) {
+    let limit = A.length / 2;
+
+    let hash = {}
+
+    for (let i = 0; i < A.length; i++) {
+        if (!hash[A[i]]) {hash[A[i]] = 1}
+        else {
+            hash[A[i]] += 1;
+            if (hash[A[i]] > limit) {return i}
+        }
+    }
+
+    return -1;
+}
