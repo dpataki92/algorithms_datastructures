@@ -65,6 +65,16 @@ class LinkedList {
       output = output + '<tail>';
       console.log(output);
     }
+
+    findNodeRecursively(data, currentNode = this.head) {
+      if (currentNode === null) {
+        return null;
+      } else if (currentNode.data === data) {
+        return currentNode;
+      } else {
+        return this.findNodeRecursively(data, currentNode.next);
+      }
+    }
 }  
 
 // DOUBLY LINKED LIST
@@ -388,7 +398,7 @@ class HashMap {
   assign(key, value) {
     const arrayIndex = this.hash(key);
     const linkedList = this.hashmap[arrayIndex];
-    
+
     if (linkedList.head === null) {
       linkedList.addToHead({ key, value });
       return;
