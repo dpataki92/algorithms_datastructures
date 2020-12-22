@@ -387,11 +387,34 @@ class HashMap {
 
   assign(key, value) {
     const arrayIndex = this.hash(key);
-    this.hashmap[arrayIndex] = value;
+    const linkedList = this.hashmap[arrayIndex];
+    
+    if (linkedList.head === null) {
+      linkedList.addToHead({ key, value });
+      return;
+    }
+    let current = linkedList.head;
+    while (current) {
+      if (current.data.key === key) {
+        current.data = { key, value };
+      }
+      if (!current.next) {
+        current.next = new Node({ key, value });
+        break;
+      }
+      current = current.next;
+    }
   }
-  
+
   retrieve(key) {
     const arrayIndex = this.hash(key);
-    return this.hashmap[arrayIndex];
+    let current = this.hashmap[arrayIndex].head;
+    while (current) {
+      if (current.data.key === key) {
+        return current.data.value;
+      }
+      current = current.next;
+    }
+    return null;
   }
 }
