@@ -820,3 +820,27 @@ function dominator(A) {
 
     return -1;
 }
+
+// stoneWall - calculates the minimum number of rectangles needed to build a wall with blocks of different heights
+function stoneWall(H) {    
+    let counter = 0;
+    let height = 0;
+    let blocks = [];
+    let i=0;
+    
+    while(i<H.length) {
+        if(H[i] > height) {
+            let newBlock = H[i] - height;
+            blocks.push(newBlock);
+            height += newBlock;
+            counter++;
+            i++;
+        } else if(H[i] < height) {
+            let lastBlock = blocks.pop();
+            height -= lastBlock;
+        } else {
+            i++;
+        }
+    }
+    return counter;
+}
