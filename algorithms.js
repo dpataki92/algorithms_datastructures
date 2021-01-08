@@ -435,7 +435,7 @@ function maxSubarray(a) {
 }
 
 // binarySearch - finds out if string contains letter, divides the dataset with each attempt to find a match
-function binarySearch(str, letter) {
+function binarySearchString(str, letter) {
     let string = str.split("").sort().join("");
 
     let startpoint = 0;
@@ -844,3 +844,25 @@ function stoneWall(H) {
     }
     return counter;
 }
+
+// binarySearch - returns index of target value using binary search
+const binarySearch = (arr, target) => {
+    let left = 0;
+    let right = arr.length;
+    
+    while (right > left) {
+      const indexToCheck = Math.floor((left + right) / 2);
+      const checking = arr[indexToCheck];
+      console.log(`indexToCheck equals: ${indexToCheck}`)
+    
+      if (checking === target) {
+        return indexToCheck;
+      } else if (target > checking) {
+        left = indexToCheck + 1;
+      } else {
+        right = indexToCheck;
+      }
+       
+    }
+    return null;
+  }
