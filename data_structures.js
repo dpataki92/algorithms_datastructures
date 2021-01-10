@@ -528,19 +528,19 @@ class MinHeap {
 
         // Make sure to swap with the smaller of the two children
         if (this.heap[leftChild] < this.heap[rightChild]) {
-          this.swap(current, leftChild);
-          current = leftChild;
-	  swapCount++;
+            this.swap(current, leftChild);
+            current = leftChild;
+            swapCount++;
         } else {
-          this.swap(current, rightChild);
-          current = rightChild;
-	  swapCount++;
+            this.swap(current, rightChild);
+            current = rightChild;
+            swapCount++;
         }
       } else {
         // If only one child exist, always swap with the left
         this.swap(current, leftChild);
         current = leftChild;
-	swapCount++;
+	      swapCount++;
       }
       leftChild = getLeft(current);
       rightChild = getRight(current);
