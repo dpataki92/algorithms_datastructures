@@ -811,3 +811,17 @@ class Edge {
   
     return { distances, previous };
   };
+
+  // shortestPathBetween - returns distance and full path between two vertices
+  const shortestPathBetween = (graph, startingVertex, targetVertex) => {
+    const { distances, previous } = dijkstras(graph, startingVertex);
+  
+    const distance = distances[targetVertex.data];
+    const path = [];
+    let vertex = targetVertex;
+    while (vertex) {
+      path.unshift(vertex);
+      vertex = previous[vertex.data];
+    }
+    return {distance, path};
+  };
