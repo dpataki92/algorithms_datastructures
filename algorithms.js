@@ -1070,3 +1070,17 @@ const binarySearch = (arr, target) => {
   
     return true;
   }
+
+  // sumZero - returns the first pair that sums to zero using multiple pointers
+  function sumZero(arr) {
+    let left = 0;
+    let right = arr.length-1;
+  
+    while (left < right) {
+      let sum = arr[left] + arr[right];
+  
+      if (sum > 0) right--;
+      else if (sum < 0) left++;
+      else return [arr[left], arr[right]];  
+    }
+  }
