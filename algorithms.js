@@ -1084,3 +1084,29 @@ const binarySearch = (arr, target) => {
       else return [arr[left], arr[right]];  
     }
   }
+
+  // countUniqueValues - returns the number of unique values using multiple pointers
+  function countUniqueValues(arr) {
+    let count = 0;
+  
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] !== arr[i+1]) count++
+    }
+  
+    return count;
+  }
+
+  function countUniqueValues2(arr) {
+    if (arr.length === 0) return 0;
+    
+    let i = 0;
+  
+    for (let j = 1; j < arr.length; j++) {
+      if (arr[i] !== arr[j]) {
+          i++;
+          arr[i] = arr[j];
+      }
+    }
+  
+    return i+1;
+  }
