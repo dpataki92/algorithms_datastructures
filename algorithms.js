@@ -1052,3 +1052,21 @@ const binarySearch = (arr, target) => {
       return Math.max(includeItem, excludeItem);
     }
   };
+
+  // same - checks if arr2 contains the squares of arr1 values (frequency matters) using a frequency counter
+  function same(arr1, arr2) {
+    if (arr1.length !== arr2.length) return false;
+  
+    let frequencyCounter = {};
+  
+    for (let num of arr2) {
+      frequencyCounter[num] = (frequencyCounter[num] || 0) + 1;
+    }
+  
+    for (let num of arr1) {
+      if (frequencyCounter[num * num]) {frequencyCounter[num * num] -= 1}
+      else return false;
+    }
+  
+    return true;
+  }
